@@ -1,28 +1,176 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" />
-	<title>Professional Presence</title>
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+
+	<!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style1.css" />
+
+	<title>AI Demo – Flappy Bird</title>
+	<style>
+		canvas {
+			border: 2px solid #333;
+			display: block;
+			margin: 2rem auto;
+			background: #cceeff;
+		}
+	</style>
 </head>
-	<body>
-		<h1>Michael Taylor</h1>
-		<nav>
-			<ul>
-				<li><button>Switch Styles</button></li>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="tech.html">Technical Portfolio</a></li>
-				<li><a href="qualification.html">Qualifications</a></li>
-				<li><a href="service.html">Service</a></li>
-				<li><a href="ai.html">AI</a></li>
-			</ul>	
-			<p>
-				NO CONTENT YET -- haven't prompted ai to generate something
-			</p>
-		</nav>
-    	<footer>
-      		<p>© 2025 Michael T. All rights reserved. </a></p>
-    	</footer>
-	</body>
+
+<body>
+	<main>
+		<!-- Header + Navigation -->
+		<div class="header">
+			<h1>Michael Taylor</h1>
+			<nav>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="tech.html">Portfolio</a></li>
+					<li><a href="qualification.html">Qualifications</a></li>
+					<li><a href="service.html">Service</a></li>
+					<li><a href="ai.html">AI</a></li>
+					<li><button>Switch Styles</button></li>
+				</ul>
+			</nav>
+		</div>
+
+		<!-- Flappy Bird Section -->
+		<div class="section">
+			<h2>AI Demo: Flappy Bird Clone</h2>
+			<p>Press the spacebar or click/tap the screen to flap!</p>
+			<canvas id="gameCanvas" width="400" height="500"></canvas>
+		</div>
+	</main>
+
+	<!-- Footer -->
+	<footer>
+    	<p>© 2025 Michael T. All rights reserved.</p>
+    </footer>
+
+	<!-- Game Script -->
+	<script>
+		const canvas = document.getElementById("gameCanvas");
+		const ctx = canvas.getContext("2d");
+
+		// Bird
+		let birdY = 200;
+		let birdVel = 0;
+		const gravity = 0.5;
+		const flap = -8;
+
+		// Pipes
+		let pipes = [];
+		const pipeGap = 120;
+		const pipeWidth = 50;
+		const pipeSpeed = 2;
+
+		// Score
+		let score = 0;
+
+		function resetGame() {
+			birdY = 200;
+			birdVel = 0;
+			pipes = [];
+			score = 0;
+		}
+
+		function spawnPipe() {
+			const topHeight = Math.random() * (canvas.height - pipeGap - 50) + 20;
+			pipes.push({ x: canvas.width, top: topHeight });
+		}
+
+		function update() {
+			// Bird physics
+			birdVel += gravity;
+			birdY += birdVel;
+
+			// Pipe movement
+			for (let i = 0; i < pipes.length; i++) {
+				pipes[i].x -= pipeSpeed;
+			}
+
+			// Spawn pipes
+			if (pipes.length === 0 || pipes[pipes.length - 1].x < canvas.width - 200) {
+				spawnPipe();
+			}
+
+			// Collision detection
+			for (let pipe of pipes) {
+				if (
+					50 < pipe.x + pipeWidth &&
+					80 > pipe.x &&
+					(birdY < pipe.top || birdY + 20 > pipe.top + pipeGap)
+				) {
+					resetGame();
+				}
+			}
+
+			// Check floor/ceiling
+			if (birdY > canvas.height - 20 || birdY < 0) {
+				resetGame();
+			}
+
+			// Update score
+			for (let pipe of pipes) {
+				if (pipe.x + pipeWidth === 50) {
+					score++;
+				}
+			}
+		}
+
+		function draw() {
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+			// Bird
+			ctx.fillStyle = "yellow";
+			ctx.fillRect(50, birdY, 30, 20);
+
+			// Pipes
+			ctx.fillStyle = "green";
+			for (let pipe of pipes) {
+				ctx.fillRect(pipe.x, 0, pipeWidth, pipe.top);
+				ctx.fillRect(pipe.x, pipe.top + pipeGap, pipeWidth, canvas.height);
+			}
+
+			// Score
+			ctx.fillStyle = "black";
+			ctx.font = "20px Arial";
+			ctx.fillText("Score: " + score, 10, 20);
+		}
+
+		function gameLoop() {
+			update();
+			draw();
+			requestAnimationFrame(gameLoop);
+		}
+
+		function flapBird() {
+			birdVel = flap;
+		}
+
+		// Controls
+		document.addEventListener("keydown", e => {
+			if (e.code === "Space") flapBird();
+		});
+		canvas.addEventListener("mousedown", flapBird);
+		canvas.addEventListener("touchstart", flapBird);
+		document.addEventListener("keydown", e => {
+    	if (e.code === "Space") {
+        	e.preventDefault(); // stop the page from scrolling
+        flapBird();
+    }
+});
+
+
+		// Start
+		gameLoop();
+	</script>
+</body>
 </html>
+
