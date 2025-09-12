@@ -20,6 +20,22 @@
 			margin: 2rem auto;
 			background: #cceeff;
 		}
+		.prompt-box {
+			border: 1px solid #aaa;
+			border-radius: 6px;
+			background: #f9f9f9;
+			padding: 1rem;
+			margin: 2rem auto;
+			max-width: 700px;
+			font-size: 0.95rem;
+			line-height: 1.5;
+			color: #333;
+		}
+		.prompt-box h3 {
+			margin-top: 0;
+			font-size: 1.2rem;
+			color: #222;
+		}
 	</style>
 </head>
 
@@ -45,6 +61,27 @@
 			<h2>AI Demo: Flappy Bird Clone</h2>
 			<p>Press the spacebar or click/tap the screen to flap!</p>
 			<canvas id="gameCanvas" width="400" height="500"></canvas>
+		</div>
+
+		<!-- Prompt Description Section -->
+		<div class="section">
+			<div class="prompt-box">
+				<h3>Prompt Description</h3>
+				<p>
+					This page was generated using a series of AI prompts.  
+					I asked the assistant to:
+				</p>
+				<ul>
+					<li>Write a crude Flappy Bird implementation in HTML, CSS, and JavaScript.</li>
+					<li>Ensure the game could be dropped directly into my existing website structure with navigation and footer intact.</li>
+					<li>Make the game controllable with the spacebar, while preventing the page from scrolling when the spacebar is pressed.</li>
+					<li>Allow click/tap as an alternate control method for mobile users.</li>
+					<li>Style the canvas simply, but in a way that fits with the rest of the site.</li>
+				</ul>
+				<p>
+					This demonstrates how AI-generated code can be integrated into an existing project with minimal editing.
+				</p>
+			</div>
 		</div>
 	</main>
 
@@ -156,17 +193,13 @@
 
 		// Controls
 		document.addEventListener("keydown", e => {
-			if (e.code === "Space") flapBird();
+			if (e.code === "Space") {
+				e.preventDefault(); // prevent page scroll
+				flapBird();
+			}
 		});
 		canvas.addEventListener("mousedown", flapBird);
 		canvas.addEventListener("touchstart", flapBird);
-		document.addEventListener("keydown", e => {
-    	if (e.code === "Space") {
-        	e.preventDefault(); // stop the page from scrolling
-        flapBird();
-    }
-});
-
 
 		// Start
 		gameLoop();
