@@ -1,5 +1,6 @@
+ 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,20 @@
 	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Iceland&family=Orbitron:wght@400..900&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-	<!-- Stylesheet -->
-    <link rel="stylesheet" href="css/style1.css" />
+	<!-- Stylesheet-->
+    <link rel="stylesheet" id="style-link" href="">
+
+	<!-- Script ---> 
+	<script>
+  		const saved = localStorage.getItem("styleState") || "style1";
+ 	 	document.getElementById("style-link").setAttribute("href", `css/${saved}.css`);
+	</script>
 
 	<title>Professional Presence</title>
 </head>
+
 
 <body>
 	<main>
@@ -27,7 +35,7 @@
 					<li><a href="qualification.html">Qualifications</a></li>
 					<li><a href="service.html">Service</a></li>
 					<li><a href="ai.html">AI</a></li>
-					<li><button></button></li>
+					<li><button id="style-toggle"></button></li>
 				</ul>
 			</nav>
 		</div>
@@ -39,13 +47,13 @@
 				<div class="section-list-item">
 					<h3>Previous Service Experience</h3>
 					<p>
-						I swam competitively all throughout my childhood. I have some of my fondest memories being in and aroud the pool with my teamates. For this reason, I've volunteered numerous times at my local neighborhood summer league swim team to coach kids ranging from 6 to 16 years old how to swim both practically and competitively. 
+						I swam competitively all throughout my childhood. I have some of my fondest memories being in and aroud the pool with my teamates. For this reason, I've volunteered numerous times at my local neighborhood, summer league swim team to coach kids ranging from 6 to 16 years old how to swim both practically and competitively. 
 					</p>
 				</div>
 				<div class="section-list-item">
 					<h3>Future Service Outlook</h3>
 					<p>
-						One of the ways I want to get involved with communities is open source contribution. Not only does this naturally align with my academic and professional interests, there's numerous projects I've had my eyes on that I would love to be apart of. I think this would be a fun outlet to continue exploring the computer science field and help out this community.  
+							One of the ways I want to get involved with communities is open source contribution. Not only does this naturally align with my academic and professional interests, there's numerous <a href="https://github.com/ghostty-org/ghostty">projects</a>, I've had my eyes on that I would love to be apart of. I think this would be a fun outlet to continue exploring the computer science field and help out this community.  
 					</p>
 				</div>
 			</div>
@@ -56,6 +64,9 @@
 	<footer>
     	<p>© 2025 Michael T. All rights reserved.</p>
     </footer>
+
+	<!--- JS --->
+	<script src="js/style-toggle.js"></script> 
 </body>
 </html>
 

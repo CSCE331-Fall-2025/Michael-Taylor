@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,16 @@
 	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Iceland&family=Orbitron:wght@400..900&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-	<!-- Stylesheet -->
-    <link rel="stylesheet" href="css/style1.css" />
+	<!-- Stylesheet-->
+    <link rel="stylesheet" id="style-link" href=""/>
+
+	<!-- Script ---> 
+	<script>
+  		const saved = localStorage.getItem("styleState") || "style1";
+ 	 	document.getElementById("style-link").setAttribute("href", `css/${saved}.css`);
+	</script>
 
 	<title>Professional Presence</title>
 </head>
@@ -26,7 +33,7 @@
 					<li><a href="qualification.html">Qualifications</a></li>
 					<li><a href="service.html">Service</a></li>
 					<li><a href="ai.html">AI</a></li>
-					<li><button></button></li>
+					<li><button id="style-toggle"></button></li>
 				</ul>
 			</nav>
 		</div>
@@ -37,27 +44,26 @@
 			<div class="section-list">
 				<div class="section-list-item">
 					<p>
-						I am a Junior at Texas A&M University pursuing a degree in Computer Science. Outside of academics, I enjoy staying active by going to the gym, spending time gaming—favorites include Apex Legends and Elden Ring—and discovering new music. I also have two cats, Creamy and Pumpkin, who keep life lively and entertaining. Balancing school, hobbies, and personal interests helps me stay grounded while continuing to grow both personally and professionally.
+							I am a Junior at <a href="https://www.tamu.edu/index.html"> Texas A&M University</a> pursuing a degree in Computer Science. Outside of academics, I enjoy staying active by going to the gym, spending time gaming—favorites include Apex Legends and <a href="https://en.bandainamcoent.eu/elden-ring/elden-ring">Elden Ring</a>—and discovering new music. I also have two cats, Creamy and Pumpkin, who keep life entertaining. Balancing school, hobbies, and personal interests helps me stay grounded while continuing to grow both personally and professionally.
 
 						<br>
 						<br>
 
-						Academically and professionally, my interest lie in the deeper layers of computer science and the challenges that come with it. I am especially fascinated by low-level software and concepts -- operating systems, concurrency, parallel computing, driver development, compilers, optimizations, etc. In order to explore these items, I've pursued advanced computer science electives as quickly as possible and conduct projects like mini OS development. Consequently, my favorite language is C++ and I'm slowly making my way through learning all of its intricacies like template metaprogramming, multithreading, and of the new features introduced in C++17 or later.  
+							Within the <a href="https://www.tamu.edu/index.html">vast realm</a> of Computer Science, my primary interest lie in the intersection between software and hardware. I am especially fascinated by low-level software and concepts -- operating systems, concurrency, parallel computing, driver development, compilers, optimizations, etc. In order to explore these items, I've pursued advanced computer science electives as quickly as possible and conduct projects like mini OS development. Consequently, my favorite language is C++ and I'm slowly making my way through learning all of its intricacies like template metaprogramming, multithreading, and some of the new features introduced in C++17 or later.  
 
 						<br>
 						<br>
 
-						Alongside systems, I'm interested in the various applications of real time computing. Anything from game engines and graphics to audio processing to finance applications pique my interest. My current interest aside, I have explored areas such as machine learning, data science, and application development, which allow me to experiment with applying theory in tangible, impactful ways. I have experience in mobile development, web development, machine learning application, and indie game development. Whether building a project in C++ from the ground up, modeling data for prediction, or designing user-facing applications, I strive to combine creativity with technical depth.
+						Alongside systems, I'm interested in the various applications of real time computing. Anything from game engines and graphics to audio processing to finance applications pique my interest. My current interest aside, I have explored areas such as machine learning, data science, and application development, which allow me to create more tangible, and impactful systems. I have experience in mobile development, web development, machine learning application, and some indie game development.
 
 						<br>
 						<br>
 					</p>
 				</div>
+				<div class="resume">
+					<a href="assets/Michael_Taylor_Resume_September2025.pdf" target="_blank">Resume </a>
+				</div>
 			</div>
-		</div>
-
-		<div class="resume">
-			<a href="assets/Michael_Taylor_Resume_September2025.pdf" target="_blank">Resume </a>
 		</div>
 
 		<div class="section">
@@ -76,6 +82,10 @@
 	<footer>
     	<p>© 2025 Michael T. All rights reserved.</p>
     </footer>
+
+
+	<!--- JS --->
+	<script src="js/style-toggle.js"></script> 
 </body>
 </html>
 

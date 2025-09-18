@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,16 @@
 	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Iceland&family=Orbitron:wght@400..900&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-	<!-- Stylesheet -->
-    <link rel="stylesheet" href="css/style1.css" />
+	<!-- Stylesheet-->
+    <link rel="stylesheet" id="style-link" href=""/>
+
+	<!-- Script ---> 
+	<script>
+  		const saved = localStorage.getItem("styleState") || "style1";
+ 	 	document.getElementById("style-link").setAttribute("href", `css/${saved}.css`);
+	</script>
 
 	<title>AI Demo – Flappy Bird</title>
 	<style>
@@ -21,9 +28,9 @@
 			background: #cceeff;
 		}
 		.prompt-box {
-			border: 1px solid #aaa;
+			border: 1px solid inherit;
 			border-radius: 6px;
-			background: #f9f9f9;
+			background: inherit;
 			padding: 1rem;
 			margin: 2rem auto;
 			max-width: 700px;
@@ -34,7 +41,7 @@
 		.prompt-box h3 {
 			margin-top: 0;
 			font-size: 1.2rem;
-			color: #222;
+			color: inherit;
 		}
 	</style>
 </head>
@@ -51,7 +58,7 @@
 					<li><a href="qualification.html">Qualifications</a></li>
 					<li><a href="service.html">Service</a></li>
 					<li><a href="ai.html">AI</a></li>
-					<li><button>Switch Styles</button></li>
+					<li><button id="style-toggle"></button></li>
 				</ul>
 			</nav>
 		</div>
@@ -68,8 +75,7 @@
 			<div class="prompt-box">
 				<h3>Prompt Description</h3>
 				<p>
-					This page was generated using a series of AI prompts.  
-					I asked the assistant to:
+						This page was generated using a series of prompts to <a href="https://chatgpt.com/">chatGPT</a>  
 				</p>
 				<ul>
 					<li>Write a crude Flappy Bird implementation in HTML, CSS, and JavaScript.</li>
@@ -204,6 +210,9 @@
 		// Start
 		gameLoop();
 	</script>
+	
+	<!-- JS Link for Style Switch --->
+	<script src="js/style-toggle.js"></script> 
 </body>
 </html>
 

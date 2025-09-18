@@ -1,0 +1,232 @@
+/* STYLE 2 */
+
+/* Pull in Custom Tron Style Font */
+@font-face {
+	font-family: "Tron";
+	src: url('../assets/Tron.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Some More Root Vars */
+:root {
+	--fg: #04BFBF;
+	--bg: #021519;
+	--highlight: #FFFFFF; /* white */
+	--pc1: #00FFFF; /* very cyan */
+	--pc2: #89fafa; /* light cyan */
+	--sc1: #ffc412; /* kinda white/orange */ 
+	--sc2: #ffc412; /* very orange */
+	--ff: /*"Tourney",*/ "Iceland";
+}
+
+/* General Styles to slap onto thing */
+body, nav a, .section {
+  	transition: background-color 0.5s linear; 
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	padding: 0;
+	margin: 2rem;
+	background-color: var(--bg);
+}
+
+body::before {
+	content: '';
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: 
+		linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+	background-size: 50px 50px;
+	z-index: -1;
+	pointer-events: none;
+}
+
+main {
+	flex: 1;
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 3rem;
+}
+
+.header h1 {
+	font-family: "Tron"; 
+    font-size: 5rem;
+	font-weight: 400;
+    color: var(--highlight);
+	text-transform: uppercase;
+	text-align: center;
+    text-shadow:
+    	0 0 5px  var(--pc1),
+        0 0 10px var(--pc1),
+        0 0 20px var(--pc1),
+        0 0 40px var(--pc1),
+        0 0 80px var(--pc1);
+}
+
+nav ul {
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	gap: 2rem;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+}
+
+nav a {
+	color: var(--sc1);
+	text-decoration: none;
+	font-family: var(--ff);
+	font-size: 1rem;
+	text-shadow: 
+		0 0 5px var(--sc2),
+		0 0 10px var(--sc2);
+	padding: 1rem 1rem;
+	border: 1px solid transparent;
+	transition: all 0.3s ease;
+}
+
+nav a:hover {
+	text-shadow:
+		0 0 5px var(--sc2),
+		0 0 10px var(--sc2),
+		0 0 20px var(--sc2);
+	border: 1px solid var(--sc2);
+	box-shadow: 0 0 10px var(--sc2);
+}
+
+
+nav button {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 1.5px solid var(--sc2);
+    background: var(--bg);
+	overflow: hidden;
+    cursor: pointer;
+	transition: background 0.5s ease;
+	box-shadow: 0 0 10px var(--sc2);
+}
+
+nav button:hover{
+ 	background: var(--sc2);
+	box-shadow: 
+		0 0 10px var(--sc2),
+		0 0 20px var(--sc2);
+}
+
+.section {
+	padding: 2rem;
+	margin: 2rem 4rem 2rem 4rem;
+	border: 1px solid var(--pc1);
+	box-shadow:
+		0 0 10px var(--pc2) inset,
+		0 0 20px var(--pc2) inset,
+		0 0 10px var(--pc2),
+		0 0 20px var(--pc2);
+}
+
+.section-list {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.section h2 {
+	font-family: var(--ff);
+	font-weight: 700;
+	color: var(--sc1);
+	font-family: var(--ff);
+	text-shadow: 
+		0 0 10px var(--sc2);
+	margin: 0;
+	padding-bottom: 0.5rem;
+}
+
+.section h3 {
+	font-family: var(--ff);
+	color: var(--pc1);
+	padding: 0;
+	margin: 0;
+}
+
+.section p {
+	font-family: var(--ff);
+	padding: 0;
+	margin: 0;
+	color: var(--pc1);
+}
+
+.section ul {
+	font-family: var(--ff);
+	padding: 0;
+	margin: 0;
+	color: var(--sc1);
+}
+
+.section a {
+	color: var(--sc1);
+	text-decoration: none;
+	font-family: var(--ff);
+	font-size: 1rem;
+	text-shadow: 
+		0 0 5px var(--sc2),
+		0 0 10px var(--sc2);
+	transition: all 0.3s ease;
+}
+
+.section a:hover {
+	text-shadow:
+		0 0 5px var(--sc2),
+		0 0 10px var(--sc2),
+		0 0 20px var(--sc2);
+}
+
+.resume {
+	text-align: center;
+	padding: 0;
+}
+
+
+.resume a{
+	color: var(--pc2);
+	text-decoration: none;
+	font-family: var(--ff);
+	font-size: 1rem;
+	text-shadow: 
+		0 0 5px var(--sc2),
+		0 0 10px var(--sc2);
+	padding: 1rem 1rem;
+	border: 1px solid transparent;
+	transition: all 0.3s ease;
+}
+.resume a:hover {
+ 	text-shadow:
+		0 0 5px var(--sc2),
+		0 0 10px var(--sc2),
+		0 0 20px var(--sc2);
+	border: 1px solid var(--sc2);
+	box-shadow: 0 0 10px var(--sc2);
+}
+
+
+
+
+footer {
+	font-family: var(--ff);
+	text-align: center;
+	padding: 2rem 0;
+	font-size: 1rem;
+	color: var(--pc1);
+}

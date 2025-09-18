@@ -8,9 +8,16 @@
 	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
-	<!-- Stylesheet -->
-    <link rel="stylesheet" href="css/style1.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Iceland&family=Orbitron:wght@400..900&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+	<!-- Stylesheet-->
+    <link rel="stylesheet" id="style-link" href=""/>
+
+	<!-- Script ---> 
+	<script>
+  		const saved = localStorage.getItem("styleState") || "style1";
+ 	 	document.getElementById("style-link").setAttribute("href", `css/${saved}.css`);
+	</script>
 
 	<title>Professional Presence</title>
 </head>
@@ -28,12 +35,16 @@
 				<li><a href="qualification.html">Qualifications</a></li>
 				<li><a href="service.html">Service</a></li>
 				<li><a href="ai.html">AI</a></li>
-				<li><button></button></li>
+				<li><button id="style-toggle"></button></li>
 			</ul>
 		</nav>
 	</main>
 	<footer>
     	<p>© 2025 Michael T. All rights reserved.</p>
     </footer>
+
+
+	<!--- JS --->
+	<script src="js/style-toggle.js"></script> 
 </body>
 </html>
