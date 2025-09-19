@@ -161,6 +161,7 @@ nav button:hover{
 	margin: 0;
 }
 
+
 .section p {
 	font-family: var(--ff);
 	padding: 0;
@@ -200,7 +201,7 @@ nav button:hover{
 
 
 .resume a{
-	color: var(--pc2);
+	color: var(--sc2);
 	text-decoration: none;
 	font-family: var(--ff);
 	font-size: 1rem;
